@@ -16,17 +16,17 @@ var car2_x = 10;
 var car2_y = 100;
 var background_img = "Track.jpg";
 function add(){
-    var background_imgTag = new Image();
-    var background_imgTag.onload= uploadBackground;
-    var background_imgTag.src= background_img;
+     background_imgTag = new Image();
+     background_imgTag.onload= uploadBackground;
+     background_imgTag.src= background_img;
 
-    var car1_imgTag = new Image();
-    var car1_imgTag.onload = uploadcar1;
-    var car1_imgTag.src = car1_image;
+     car1_imgTag = new Image();
+     car1_imgTag.onload = uploadcar1;
+     car1_imgTag.src = car1_image;
 
-    var car2_imgTag = new Image();
-    var car2_imgTag.onload = uploadcar2;
-    var car2_imgTag.src = car2_image;
+     car2_imgTag = new Image();
+     car2_imgTag.onload = uploadcar2;
+     car2_imgTag.src = car2_image;
 }
 
 function uploadBackground(){
@@ -43,7 +43,7 @@ function uploadcar2(){
 
 window.addEventListener("keydown", mykeydown);
 
-function mykeydown(){
+function mykeydown(e){
     keyPressed = e.keyCode;
     console.log(keyPressed);
     if(keyPressed == '38'){
@@ -78,4 +78,14 @@ function mykeydown(){
         car1_right();
         console.log("right key")
     }
+}
+
+function car1_up(){
+      if (car1_y >= 0)
+      {
+          car1_y = car1_y - 10;
+          uploadBackground();
+          uploadcar1();
+          uploadcar2();
+      }
 }
